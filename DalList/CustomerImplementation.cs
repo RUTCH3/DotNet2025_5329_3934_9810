@@ -37,11 +37,30 @@ namespace Dal
             return customer;
         }
 
-        List<Customer> ICRUD<Customer>.ReadAll()
+        Customer ICRUD<Customer>.Read(System.Func<DO.Customer, bool> filter)
+        {
+            var customer = DataSource.Customers.FirstOrDefault(filter);
+
+            if (customer == null)
+            {
+                throw new Exception("No customer matching the filter criteria was found.");
+            }
+
+            return customer;
+        }
+        List<Customer?> ICRUD<Customer>.ReadAll(System.Func<DO.Customer, bool>? filter)
         {
             if (DataSource.Customers == null)
                 throw new Exception("כרגע רשימת הלקוחות ריקה!");
-            return DataSource.Customers;
+
+            if (filter != null)
+            {
+                return DataSource.Customers.Where(filter).ToList();
+            }
+            else
+            {
+                return DataSource.Customers.ToList();
+            }
         }
 
         void ICRUD<Customer>.Delete(int id)
