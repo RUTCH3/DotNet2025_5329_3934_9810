@@ -16,8 +16,6 @@ namespace Dal
             list?.Add(product);
             return product.Barcode;
         }
-
-
         Product? ICRUD<Product>.Read(int id)
         {
             bool find = false;
@@ -37,11 +35,30 @@ namespace Dal
             return product;
         }
 
-        List<Product> ICRUD<Product>.ReadAll()
+        Product ICRUD<Product>.Read(System.Func<DO.Product, bool> filter)
+        {
+            var product = DataSource.Products.FirstOrDefault(filter);
+
+            if (product == null)
+            {
+                throw new Exception("No customer matching the filter criteria was found.");
+            }
+
+            return product;
+        }
+        List<Product?> ICRUD<Product>.ReadAll(System.Func<DO.Product, bool>? filter)
         {
             if (DataSource.Products == null)
-                throw new Exception("כרגע רשימת המוצרים ריקה!");
-            return DataSource.Products;
+                throw new Exception("כרגע רשימת הלקוחות ריקה!");
+
+            if (filter != null)
+            {
+                return DataSource.Products.Where(filter).ToList();
+            }
+            else
+            {
+                return DataSource.Products.ToList();
+            }
         }
 
         void ICRUD<Product>.Delete(int id)

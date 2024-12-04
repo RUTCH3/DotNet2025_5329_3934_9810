@@ -16,8 +16,6 @@ namespace Dal
             list?.Add(sale);
             return sale.SaleId;
         }
-
-
         Sale? ICRUD<Sale>.Read(int id)
         {
             bool find = false;
@@ -37,11 +35,30 @@ namespace Dal
             return sale;
         }
 
-        List<Sale> ICRUD<Sale>.ReadAll()
+        Sale ICRUD<Sale>.Read(System.Func<DO.Sale, bool> filter)
+        {
+            var sale = DataSource.Sales.FirstOrDefault(filter);
+
+            if (sale == null)
+            {
+                throw new Exception("No customer matching the filter criteria was found.");
+            }
+
+            return sale;
+        }
+        List<Sale?> ICRUD<Sale>.ReadAll(System.Func<DO.Sale, bool>? filter)
         {
             if (DataSource.Sales == null)
-                throw new Exception("כרגע אין מבצעים!");
-            return DataSource.Sales;
+                throw new Exception("כרגע רשימת הלקוחות ריקה!");
+
+            if (filter != null)
+            {
+                return DataSource.Sales.Where(filter).ToList();
+            }
+            else
+            {
+                return DataSource.Sales.ToList();
+            }
         }
 
         void ICRUD<Sale>.Delete(int id)
