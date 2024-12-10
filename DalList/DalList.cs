@@ -5,8 +5,8 @@ namespace Dal
 {
     public class DalList : IDAL
     {
-        public ICustomer Customer => new CustomerImplementation();
-        public IProduct Product => new ProductImplementation();
-        public ISale Sale => new SaleImplementation();
+        public ICustomer iCustomer => new CustomerImplementation();
+        public IProduct iProduct => new ProductImplementation();
+        public ISale iSale => new SaleImplementation();
     }
 }
