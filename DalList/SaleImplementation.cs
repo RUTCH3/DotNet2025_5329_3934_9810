@@ -14,7 +14,7 @@ namespace Dal
             }
             Sale sale = item;
             list?.Add(sale);
-            return sale.SaleId;
+            return sale.saleId;
         }
         Sale? ICRUD<Sale>.Read(int id)
         {
@@ -22,7 +22,7 @@ namespace Dal
             Sale? sale = null;
             DataSource.Sales?.ForEach(s =>
             {
-                if (s.SaleId == id)
+                if (s.saleId == id)
                 {
                     find = true;
                     sale = s;
@@ -66,7 +66,7 @@ namespace Dal
             Sale? sale = null;
             DataSource.Sales?.ForEach(s =>
             {
-                if (s.SaleId == id)
+                if (s.saleId == id)
                 {
                     sale = s;
                 }

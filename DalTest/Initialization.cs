@@ -23,7 +23,7 @@ namespace DalTest
         }
         private static void createSale()
         {
-            Sale sale = new Sale(22, 1, 2, true, 100, new DateTime(2024, 11, 20), new DateTime(2024, 12, 10)));
+            Sale sale = new Sale(22, 1, 2, true, 100, new DateTime(2024, 11, 20), new DateTime(2024, 12, 10));
             s_dal?.Sale?.Create(sale);
         }
         public static void Initialize(IDAL dal)

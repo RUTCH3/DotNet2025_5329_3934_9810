@@ -14,7 +14,7 @@ namespace Dal
             }
             Product product = item;
             list?.Add(product);
-            return product.Barcode;
+            return product.productId;
         }
         Product? ICRUD<Product>.Read(int id)
         {
@@ -22,7 +22,7 @@ namespace Dal
             Product? product = null;
             DataSource.Products?.ForEach(p =>
             {
-                if (p.Barcode == id)
+                if (p.productId == id)
                 {
                     find = true;
                     product = p;
@@ -66,7 +66,7 @@ namespace Dal
             Product? product = null;
             DataSource.Products?.ForEach(p =>
             {
-                if (p.Barcode == id)
+                if (p.productId == id)
                 {
                     product = p;
                 }
