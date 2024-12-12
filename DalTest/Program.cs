@@ -6,6 +6,9 @@ using DalTest;
 public class Program
 {
     private static IDAL s_dal = new Dal.DalList();
+=======
+    public static IDAL s_dal = new DalList();
+>>>>>>> Stashed changes
 
     public static void Main()
     {
@@ -19,7 +22,11 @@ public class Program
             Console.WriteLine("ERROR: " + ex.Message);
         }
     }
+<<<<<<< Updated upstream
     // פונקציה המדפיסה את שמות המחלקות למשתמש וקולטת מהמשתמש את שם המחלקה שיבחר
+=======
+
+>>>>>>> Stashed changes
     private static void DisplayMainMenu()
     {
         Console.WriteLine("Please choose the kind of object: customer/product/sale");
@@ -33,7 +40,11 @@ public class Program
             Console.WriteLine("Invalid selection.");
         }
     }
+<<<<<<< Updated upstream
     // פונקציה הבודקת האם הקלט תקין, כלומר האם המשתמש בחר בשם מחלקה קיימת
+=======
+
+>>>>>>> Stashed changes
     private static bool IsValidObject(string kindOfObject)
     {
         return kindOfObject.ToLower() switch
@@ -44,6 +55,7 @@ public class Program
             _ => false
         };
     }
+<<<<<<< Updated upstream
     // פונקציה המציגה את אפשרויות פעולות המשתמש: יצירת אוביקט/קריאה/עדכון ומחיקה
     // הפונקציה מקבלת אוביקט כלשהו ושולחת לפונקציה שמממשת את הפעולה שהמשתמש בחר, בפרמטר נשלח את האוביקט
     private static void DisplayCrudOptions<T>(T obj) where T : class
@@ -70,8 +82,12 @@ public class Program
                 break;
         }
     }
+<<<<<<< Updated upstream
     // פונקציה המממשת את הפעולה יצירת אוביקט מאחד הסוגים של המחלקות
     // הפונקציה מקבלת אוביקט כלשהו ויוצרת את המופע המתאים לפי סוג האוביקט
+=======
+
+>>>>>>> Stashed changes
     private static void CreateObject<T>(T obj) where T : class
     {
         switch (obj)
@@ -87,7 +103,11 @@ public class Program
                 break;
         }
     }
+<<<<<<< Updated upstream
     // פונקציה המממשת את הפעולה קריאת אוביקט מאחד הסוגים של המחלקות
+=======
+
+>>>>>>> Stashed changes
     private static void ReadObject<T>(T obj) where T : class
     {
         switch (obj)
@@ -103,7 +123,11 @@ public class Program
                 break;
         }
     }
+<<<<<<< Updated upstream
     // פונקציה המממשת את הפעולה עדכון אוביקט מאחד הסוגים של המחלקות
+=======
+
+>>>>>>> Stashed changes
     private static void UpdateObject<T>(T obj) where T : class
     {
         switch (obj)
@@ -119,12 +143,17 @@ public class Program
                 break;
         }
     }
+<<<<<<< Updated upstream
     // פונקציה המממשת את הפעולה מחיקת אוביקט מאחד הסוגים של המחלקות
+=======
+
+>>>>>>> Stashed changes
     private static void DeleteObject<T>(T obj) where T : class
     {
         switch (obj)
         {
             case Customer customer:
+<<<<<<< Updated upstream
                 s_dal.Customer.Delete(customer.customerId);
                 break;
             case Sale sale:
@@ -158,7 +187,11 @@ public class Program
                 break;
         }
     }
+<<<<<<< Updated upstream
     // פונקציה היוצרת אוביקט מסוג לקוח מהנתונים שהמשתמש מכניס
+=======
+
+>>>>>>> Stashed changes
     private static Customer CreateCustomer()
     {
         Console.WriteLine("Insert details: customerId, customerName, customerAddress, customerPhone");
@@ -169,7 +202,11 @@ public class Program
             Console.ReadLine()
         );
     }
+<<<<<<< Updated upstream
     // פונקציה היוצרת אוביקט מסוג מכירה מהנתונים שהמשתמש מכניס
+=======
+
+>>>>>>> Stashed changes
     private static Sale CreateSale()
     {
         Console.WriteLine("Insert details: saleId, saleProductId, requiredQuantityForDiscount, isIntendedForAllCustomers, finalPrice, saleStartDate, saleEndDate");
@@ -183,11 +220,16 @@ public class Program
 
         return new Sale(saleId, saleProductId, requiredQuantityForDiscount, isIntendedForAllCustomers, finalPrice, saleStartDate, saleEndDate);
     }
+<<<<<<< Updated upstream
     // פונקציה היוצרת אוביקט מסוג מוצר מהנתונים שהמשתמש מכניס
+=======
+
+>>>>>>> Stashed changes
     private static Product CreateProduct()
     {
         Console.WriteLine("Insert details: productId, productName, category, productPrice, quantityInStock");
         int productId = Convert.ToInt32(Console.ReadLine());
+<<<<<<< Updated upstream
         string? productName = Console.ReadLine();
         string? category = Console.ReadLine();
         Enum.TryParse(category, true, out Catagories chosenCategory);
