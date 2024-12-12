@@ -5,6 +5,7 @@ using DalTest;
 
 public class Program
 {
+<<<<<<< Updated upstream
     private static IDAL s_dal = new Dal.DalList();
 =======
     public static IDAL s_dal = new DalList();
@@ -64,6 +65,15 @@ public class Program
         string? kindOfFunc = Console.ReadLine();
 
         switch (kindOfFunc?.ToLower())
+=======
+
+    private static void DisplayCrudOptions<T>(T obj) where T : class
+    {
+        Console.WriteLine("Please choose the function to do: create/read/update/delete");
+        string kindOfFunc = Console.ReadLine();
+
+        switch (kindOfFunc.ToLower())
+>>>>>>> Stashed changes
         {
             case "create":
                 CreateObject(obj);
@@ -167,6 +177,19 @@ public class Program
     // פונקציה המנהלת את יצירת האוביקטים ושולחת לכל אוביקט את הפונקציה המתאימה שיוצרת מופע
     // בהתאם לנתונים שהכניס המשתמש, ואח"כ שולחת לפונקציה שמציגה למשתמש את הפעולות האפשריות
     // ובפרמטר היא שולחת את האוביקט שנוצר לפני כן ע"י נתוני המשתמש
+=======
+                s_dal.Customer.Delete(customer.customerId); // Assuming you need to pass ID for deletion.
+                break;
+            case Sale sale:
+                s_dal.Sale.Delete(sale.saleId); // Assuming you need to pass ID for deletion.
+                break;
+            case Product product:
+                s_dal.Product.Delete(product.productId); // Assuming you need to pass ID for deletion.
+                break;
+        }
+    }
+
+>>>>>>> Stashed changes
     private static void CreateObject(string kindOfObject)
     {
         Console.WriteLine($"Please enter details for {kindOfObject}:");
@@ -232,6 +255,10 @@ public class Program
 <<<<<<< Updated upstream
         string? productName = Console.ReadLine();
         string? category = Console.ReadLine();
+=======
+        string productName = Console.ReadLine();
+        string category = Console.ReadLine();
+>>>>>>> Stashed changes
         Enum.TryParse(category, true, out Catagories chosenCategory);
         int productPrice = Convert.ToInt32(Console.ReadLine());
         int quantityInStock = Convert.ToInt32(Console.ReadLine());
