@@ -5,7 +5,7 @@ using DalTest;
 
 public class Program
 {
-    private static IDAL s_dal = new Dal.DalList();
+    private static IDAL s_dal = new DalList();
 
     public static void Main()
     {
