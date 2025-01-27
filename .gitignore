@@ -16,6 +16,7 @@
 # Mono auto generated files
 mono_crash.*
 
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -32,6 +33,18 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+bin/
+obj/
+
+# Visual Studio files
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+packages/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
