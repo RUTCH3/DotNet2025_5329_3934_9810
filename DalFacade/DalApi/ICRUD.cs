@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace DalApi;
+namespace DalApi
 {
     public interface ICRUD<T>
     {

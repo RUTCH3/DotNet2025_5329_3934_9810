@@ -14,7 +14,7 @@ namespace Dal
             }
             Customer customer = item;
             list?.Add(customer);
-            return customer.Id;
+            return customer.customerId;
         }
 
 
@@ -24,7 +24,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.Id == id)
+                if (c.customerId == id)
                 {
                     find = true;
                     customer = c;
@@ -68,7 +68,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.Id == id)
+                if (c.customerId == id)
                 {
                     customer = c;
                 }

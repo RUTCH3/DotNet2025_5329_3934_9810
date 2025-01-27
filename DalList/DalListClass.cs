@@ -3,7 +3,7 @@ using DalApi;
 
 namespace Dal
 {
-    public class DalList : IDAL
+    public class DalListClass : IDAL
     {
         public ICustomer Customer => new CustomerImplementation();
         public IProduct Product => new ProductImplementation();
