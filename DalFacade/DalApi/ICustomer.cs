@@ -1,6 +1,5 @@
-﻿using DO;
-
-namespace DalApi;
+﻿namespace DalApi;
+using DO;
 
 public interface ICustomer:ICRUD<Customer>
 {

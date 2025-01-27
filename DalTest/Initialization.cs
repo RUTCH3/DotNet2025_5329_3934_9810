@@ -13,26 +13,22 @@ namespace DalTest
 
         private static void createCustomer()
         {
-            Customer customer = new Customer(328187985, "Reut", "Shderot 8", "0578211450");
+            Customer customer = new Customer();
             s_dal?.Customer?.Create(customer);
         }
         private static void createProduct()
         {
-            Product product = new Product(2, "DisneyPajamas", Catagories.Pajamas, 120, 52);
+            Product product = new Product();
             s_dal?.Product?.Create(product);
         }
         private static void createSale()
         {
-            Sale sale = new Sale(22, 1, 2, true, 100, new DateTime(2024, 11, 20), new DateTime(2024, 12, 10));
+            Sale sale = new Sale();
             s_dal?.Sale?.Create(sale);
         }
-        public static void Initialize(IDAL dal)
+        public static void Initialize()
         {
-            s_dal = dal;
-
-            createCustomer();
-            createProduct();
-            createSale();
+            s_dal = DalApi.Factory.Get;
         }
 
     }

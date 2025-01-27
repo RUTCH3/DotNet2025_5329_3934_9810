@@ -14,7 +14,7 @@ namespace Dal
             }
             Customer customer = item;
             list?.Add(customer);
-            return customer.customerId;
+            return customer.Id;
         }
 
 
@@ -24,7 +24,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.customerId == id)
+                if (c.Id == id)
                 {
                     find = true;
                     customer = c;
@@ -37,30 +37,11 @@ namespace Dal
             return customer;
         }
 
-        Customer ICRUD<Customer>.Read(System.Func<DO.Customer, bool> filter)
-        {
-            var customer = DataSource.Customers.FirstOrDefault(filter);
-
-            if (customer == null)
-            {
-                throw new Exception("No customer matching the filter criteria was found.");
-            }
-
-            return customer;
-        }
-        List<Customer?> ICRUD<Customer>.ReadAll(System.Func<DO.Customer, bool>? filter)
+        List<Customer> ICRUD<Customer>.ReadAll()
         {
             if (DataSource.Customers == null)
                 throw new Exception("כרגע רשימת הלקוחות ריקה!");
-
-            if (filter != null)
-            {
-                return DataSource.Customers.Where(filter).ToList();
-            }
-            else
-            {
-                return DataSource.Customers.ToList();
-            }
+            return DataSource.Customers;
         }
 
         void ICRUD<Customer>.Delete(int id)
@@ -68,7 +49,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.customerId == id)
+                if (c.Id == id)
                 {
                     customer = c;
                 }
