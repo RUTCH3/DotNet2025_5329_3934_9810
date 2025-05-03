@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlTest
+namespace BO
 {
-    internal class Program
+    public class Order
     {
-        static void Main(string[] args)
-        {
-        }
+        public bool isPreferredCustomer { get; set; }
     }
 }

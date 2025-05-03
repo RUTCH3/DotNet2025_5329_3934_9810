@@ -8,3 +8,4 @@ public enum Jewelry
     Ring,
     Watch
 }
+public enum Catagories { Pajamas, slippers, perfume };
