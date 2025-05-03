@@ -1,6 +1,6 @@
-﻿using DO;
-
-namespace Dal
+﻿namespace Dal;
+using DO;
+static internal class DataSource1
 {
     internal static class DataSource
     {

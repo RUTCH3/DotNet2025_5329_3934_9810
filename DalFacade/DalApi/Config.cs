@@ -1,6 +1,5 @@
 ﻿namespace DalApi;
 
-using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
 
 static class DalConfig
@@ -19,8 +18,11 @@ static class DalConfig
         var packages = dalConfig.Element("dal-packages")?.Elements() ??
              throw new DalConfigException("<dal-packages> element is missing");
 
-        s_dalPackages = packages.ToDictionary(p => "" + p.Name, p => p.Item2);
-
+        s_dalPackages = packages.ToDictionary(p => "" + p.Name, p => p.Value);
+        foreach (var p in s_dalPackages)
+        {
+            Console.WriteLine(p.Key + "   " + p.Value);
+        }
     }
 }
 

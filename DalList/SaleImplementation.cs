@@ -1,5 +1,9 @@
 ﻿using DO;
 using DalApi;
+using static Dal.DataSource1;
+using Tools;
+using System.Reflection;
+
 
 namespace Dal
 {
@@ -7,6 +11,7 @@ namespace Dal
     {
         int ICRUD<Sale>.Create(Sale item)
         {
+            LogManager.WriteToLog("start delete the customer.", MethodBase.GetCurrentMethod().DeclaringType.FullName, MethodBase.GetCurrentMethod().Name);
             List<Sale>? list = DataSource.Sales;
             if (list != null && list.Contains(item))
             {
@@ -14,7 +19,7 @@ namespace Dal
             }
             Sale sale = item;
             list?.Add(sale);
-            return sale.SaleId;
+            return sale._saleId;
         }
 
 
@@ -24,7 +29,7 @@ namespace Dal
             Sale? sale = null;
             DataSource.Sales?.ForEach(s =>
             {
-                if (s.SaleId == id)
+                if (s._saleId == id)
                 {
                     find = true;
                     sale = s;
@@ -49,7 +54,7 @@ namespace Dal
             Sale? sale = null;
             DataSource.Sales?.ForEach(s =>
             {
-                if (s.SaleId == id)
+                if (s._saleId == id)
                 {
                     sale = s;
                 }

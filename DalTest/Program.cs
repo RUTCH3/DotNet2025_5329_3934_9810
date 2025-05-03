@@ -1,8 +1,6 @@
 ﻿using DO;
 using DalTest;
 using DalApi;
-using Dal;
-
 
 public class Program
 {
@@ -10,14 +8,14 @@ public class Program
 
     private static string DisplayMainMenu()
     {
-        Console.WriteLine("איזה ישות ברצונך להוסיף?\n" +
-                "האפשרויות הן: Customer, Product, Sale");
+        Console.WriteLine("Which entity would you like to add?\n" +
+                "The options are: Customer, Product, Sale");
         string? entity = Console.ReadLine();
         while (entity == null || (!entity.Equals("Customer") && !entity.Equals("Product") && !entity.Equals("Sale")))
         {
-            Console.WriteLine("קלט לא תקין, אנא נסה שוב\n");
-            Console.WriteLine("איזה ישות ברצונך להוסיף?\n" +
-            "האפשרויות הן: Customer, Product, Sale");
+            Console.WriteLine("please try agien.\n");
+            Console.WriteLine("Which entity would you like to add?\n" +
+            "The options are: Customer, Product, Sale");
             entity = Console.ReadLine();
         }
         return entity;
@@ -25,14 +23,14 @@ public class Program
 
     private static string ShowSubmenu(string entity)
     {
-        Console.WriteLine("איזה פעולה ברצונך לעשות?\n" +
-                "האפשרויות הן: Create, Read, ReadAll, Update, Delete");
+        Console.WriteLine("Which action would you like to do?\n" +
+                "The options are: Create, Read, ReadAll, Update, Delete");
         string? option = Console.ReadLine();
         while (option == null || (!option.Equals("Create") && !option.Equals("Read") && !option.Equals("ReadAll") && !option.Equals("Update") && !option.Equals("Delete")))
         {
-            Console.WriteLine("קלט לא תקין, אנא נסה שוב\n");
-            Console.WriteLine("איזה פעולה ברצונך לעשות?\n" +
-                "האפשרויות הן: Create, Read, ReadAll, Update, Delete");
+            Console.WriteLine("Please try agien.\n");
+            Console.WriteLine("Which action would you like to do?\n" +
+                "The options are: Create, Read, ReadAll, Update, Delete");
             option = Console.ReadLine();
         }
         return option;
@@ -61,6 +59,8 @@ public class Program
             Initialization.Initialize();
             string entity = DisplayMainMenu();
             string option = ShowSubmenu(entity);
+            //if(option == "Create")
+                //Initialization.
         }
         catch (Exception ex)
         {

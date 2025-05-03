@@ -9,7 +9,7 @@ namespace Dal
         public IProduct Product => new ProductImplementation();
         public ISale Sale => new SaleImplementation();
 
-        private static readonly DalList instance = new DalList();
+        private static readonly DalList instance = new();
 
         public static DalList Instance
         {

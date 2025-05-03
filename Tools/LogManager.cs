@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,19 +15,21 @@ namespace Tools
         private static readonly string logDirectoryPath = Path.Combine(GetCurrentDirectory(), logDirectoryRelativePath);
         private static readonly string logFilePath = Path.Combine(logDirectoryPath, "log.txt");
 
-        public static void WriteToLog(string projectName, string funcName, string message)
+        public static void WriteToLog(string message, [CallerMemberName] string funcName = "unknown", [CallerFilePath] string filePath = "", [CallerLineNumber] int lineNumber = 0)
         {
             Directory.CreateDirectory(logDirectoryPath);
+            string fileName = Path.GetFileName(filePath);
+            string projectName = Assembly.GetEntryAssembly()?.GetName().Name ?? "UnknownProject";
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             if (!File.Exists(logFilePath))
             {
                 File.Create(logFilePath).Close();
             }
 
-            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string logEntry = $"[{timestamp}] [{projectName}] {fileName}:{lineNumber} ({funcName}) - {message}";
 
-
-            string logEntry = $"{timestamp} | Project: {projectName} | Function: {funcName} | Message: {message}";
+            Console.WriteLine($"[{timestamp}] [{projectName}] {fileName}:{lineNumber} ({funcName}) - {message}");
 
             File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
 
@@ -55,10 +59,6 @@ namespace Tools
             return Directory.GetCurrentDirectory();
         }
 
-        private static string GetCurrentFilePath()
-        {
-            return Assembly.GetExecutingAssembly().Location;
-        }
     }
 }
 

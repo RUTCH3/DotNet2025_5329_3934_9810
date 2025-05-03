@@ -6,35 +6,12 @@ using System.Threading.Tasks;
 
 namespace DO
 {
-    public record Sale
+    public record Sale(int _saleId, int _productId, int _salePrice, double _totalPrice, bool _forAllCusts, DateTime _startDate, DateTime _endDate)
     {
-        private int _saleId = 0;
-        private int _productId = 0;
-        private int? _amount;
-        private double _salePrice;
-        private bool _forAllCusts;
-        private DateTime _startDate;
-        private DateTime _endDate;
-
-        public int SaleId { get => _saleId; set => _saleId = value; }
-        public int ProductId { get => _productId; set => _productId = value; }
-        public int? Amount { get => _amount; set => _amount = value; }
-        public double SalePrice { get => _salePrice; set => _salePrice = value; }
-        public bool ForAllCusts { get => _forAllCusts; set => _forAllCusts = value; }
-        public DateTime StartDate { get => _startDate; set => _startDate = value; }
-        public DateTime EndDate { get => _endDate; set => _endDate = value; }
-
-        public Sale() { }
-        public Sale(int saleId, int productId, int? amount, double salePrice, bool forAllCusts, DateTime startDate, DateTime endDate)
+        public Sale() : this(0, 0, 0, 0.0, false, new DateTime(), new DateTime())
         {
-            this._saleId = saleId;
-            this._productId = productId;
-            this._amount = amount;
-            this._salePrice = salePrice;
-            this._forAllCusts = forAllCusts;
-            this._startDate = startDate;
-            this._endDate = endDate;
         }
+        
         public void toString()
         {
             Console.WriteLine($"sale id: {_saleId}, product id: {_productId}, amount: {_salePrice}, " +

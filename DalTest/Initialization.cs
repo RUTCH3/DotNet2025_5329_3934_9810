@@ -10,19 +10,19 @@ namespace DalTest
         //private static IProduct? s_dalProduct { get; set; }
         //private static ISale? s_dalSale { get; set; }
 
-        private static void createCustomer()
+        private static void CreateCustomer()
         {
             Customer customer = new Customer();
             s_dal?.Customer?.Create(customer);
-        }
-        private static void createProduct()
+        } 
+        private static void CreateProduct()
         {
             Product product = new Product();
             s_dal?.Product?.Create(product);
         }
-        private static void createSale()
+        private static void CreateSale(Sale sale)
         {
-            Sale sale = new Sale();
+            //Sale sale1 = new Sale();
             s_dal?.Sale?.Create(sale);
         }
         public static void Initialize()
