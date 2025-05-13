@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Entery : Form
+    public partial class ManagerMenu : Form
     {
-        public Entery()
+        public ManagerMenu()
         {
             InitializeComponent();
         }

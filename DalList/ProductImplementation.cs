@@ -1,6 +1,6 @@
 ﻿using DO;
 using DalApi;
-using static Dal.DataSource1;
+using static Dal.DataSource;
 using Tools;
 
 namespace Dal
@@ -19,7 +19,7 @@ namespace Dal
             Product product = item;
             list?.Add(product);
             LogManager.WriteToLog("finish creating a product.");
-            return product.Barcode;
+            return product._barcode;
         }
 
 
@@ -30,7 +30,7 @@ namespace Dal
             Product? product = null;
             DataSource.Products?.ForEach(p =>
             {
-                if (p.Barcode == id)
+                if (p._barcode == id)
                 {
                     find = true;
                     product = p;
@@ -63,7 +63,7 @@ namespace Dal
             Product? product = null;
             DataSource.Products?.ForEach(p =>
             {
-                if (p.Barcode == id)
+                if (p._barcode == id)
                 {
                     product = p;
                 }

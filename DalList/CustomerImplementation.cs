@@ -1,6 +1,6 @@
 ﻿using DO;
 using DalApi;
-using static Dal.DataSource1;
+using static Dal.DataSource;
 using Tools;
 using System.Reflection;
 
@@ -20,7 +20,7 @@ namespace Dal
             Customer customer = item;
             list?.Add(customer);
             LogManager.WriteToLog("finish creating a customer.");
-            return customer.Id;
+            return customer._id;
         }
 
 
@@ -31,7 +31,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.Id == id)
+                if (c._id == id)
                 {
                     find = true;
                     customer = c;
@@ -63,7 +63,7 @@ namespace Dal
             Customer? customer = null;
             DataSource.Customers?.ForEach(c =>
             {
-                if (c.Id == id)
+                if (c._id == id)
                 {
                     customer = c;
                 }

@@ -1,6 +1,6 @@
 ﻿using DO;
 using DalApi;
-using static Dal.DataSource1;
+using static Dal.DataSource;
 using Tools;
 using System.Reflection;
 
