@@ -21,5 +21,10 @@ namespace UI
         {
 
         }
+
+        private void AddCust_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

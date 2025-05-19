@@ -30,6 +30,7 @@
         {
             tbCustomers = new TabControl();
             AddProd = new TabPage();
+            AddProdButton = new Button();
             tbName = new TextBox();
             nudAmount = new NumericUpDown();
             nudPrice = new NumericUpDown();
@@ -40,16 +41,27 @@
             ProdName = new Label();
             UpdateProd = new TabPage();
             DeleteProd = new TabPage();
-            lblProds = new Label();
+            DeleteButton = new Button();
+            SelectProd = new Label();
             comboBox1 = new ComboBox();
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            lblProds = new Label();
+            SelectProdToUpdate = new Label();
+            SelectCategory = new Label();
+            ProdPrice = new Label();
+            AmountItems = new Label();
+            textBox1 = new TextBox();
+            numericUpDown1 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            comboBox2 = new ComboBox();
+            UpdateProdButton = new Button();
             tbCustomers.SuspendLayout();
             AddProd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudAmount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
+            UpdateProd.SuspendLayout();
             DeleteProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // tbCustomers
@@ -65,7 +77,7 @@
             // 
             // AddProd
             // 
-            AddProd.Controls.Add(button2);
+            AddProd.Controls.Add(AddProdButton);
             AddProd.Controls.Add(tbName);
             AddProd.Controls.Add(nudAmount);
             AddProd.Controls.Add(nudPrice);
@@ -81,6 +93,15 @@
             AddProd.TabIndex = 0;
             AddProd.Text = "הוספה";
             AddProd.UseVisualStyleBackColor = true;
+            // 
+            // AddProdButton
+            // 
+            AddProdButton.Location = new Point(160, 223);
+            AddProdButton.Name = "AddProdButton";
+            AddProdButton.Size = new Size(94, 29);
+            AddProdButton.TabIndex = 8;
+            AddProdButton.Text = "הוסף מוצר";
+            AddProdButton.UseVisualStyleBackColor = true;
             // 
             // tbName
             // 
@@ -106,10 +127,12 @@
             // cbCategory
             // 
             cbCategory.FormattingEnabled = true;
+            cbCategory.Items.AddRange(new object[] { "מוצרי חשמל", "ביגוד", "מוצרי שיער", "אלקטרוניקה", "מוצרי מטבח", "מוצרי נקיון" });
             cbCategory.Location = new Point(40, 160);
             cbCategory.Name = "cbCategory";
             cbCategory.Size = new Size(151, 28);
             cbCategory.TabIndex = 4;
+            cbCategory.SelectedIndexChanged += cbCategory_SelectedIndexChanged;
             // 
             // Category
             // 
@@ -149,24 +172,62 @@
             // 
             // UpdateProd
             // 
+            UpdateProd.Controls.Add(UpdateProdButton);
+            UpdateProd.Controls.Add(textBox1);
+            UpdateProd.Controls.Add(numericUpDown1);
+            UpdateProd.Controls.Add(numericUpDown2);
+            UpdateProd.Controls.Add(comboBox2);
+            UpdateProd.Controls.Add(SelectCategory);
+            UpdateProd.Controls.Add(ProdPrice);
+            UpdateProd.Controls.Add(AmountItems);
+            UpdateProd.Controls.Add(SelectProdToUpdate);
             UpdateProd.Location = new Point(4, 29);
             UpdateProd.Name = "UpdateProd";
-            UpdateProd.Size = new Size(396, 211);
+            UpdateProd.Size = new Size(396, 273);
             UpdateProd.TabIndex = 1;
             UpdateProd.Text = "עדכון";
             UpdateProd.UseVisualStyleBackColor = true;
             // 
             // DeleteProd
             // 
-            DeleteProd.Controls.Add(button1);
-            DeleteProd.Controls.Add(label1);
+            DeleteProd.Controls.Add(DeleteButton);
+            DeleteProd.Controls.Add(SelectProd);
             DeleteProd.Controls.Add(comboBox1);
             DeleteProd.Location = new Point(4, 29);
             DeleteProd.Name = "DeleteProd";
-            DeleteProd.Size = new Size(396, 211);
+            DeleteProd.Size = new Size(396, 273);
             DeleteProd.TabIndex = 2;
             DeleteProd.Text = "מחיקה";
             DeleteProd.UseVisualStyleBackColor = true;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.Location = new Point(154, 153);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(94, 29);
+            DeleteButton.TabIndex = 2;
+            DeleteButton.Text = "מחק";
+            DeleteButton.UseVisualStyleBackColor = true;
+            DeleteButton.Click += button1_Click;
+            // 
+            // SelectProd
+            // 
+            SelectProd.AutoSize = true;
+            SelectProd.Location = new Point(277, 92);
+            SelectProd.Name = "SelectProd";
+            SelectProd.Size = new Size(71, 20);
+            SelectProd.TabIndex = 1;
+            SelectProd.Text = "בחר מוצר";
+            SelectProd.Click += label1_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "מקרר", "מאוורר", "מחשבון", "מטאטא", "מגב", "מסרק", "שמפו", "תנור" });
+            comboBox1.Location = new Point(75, 83);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 0;
             // 
             // lblProds
             // 
@@ -177,40 +238,80 @@
             lblProds.TabIndex = 3;
             lblProds.Text = "מוצרים";
             // 
-            // comboBox1
+            // SelectProdToUpdate
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(75, 83);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 0;
+            SelectProdToUpdate.AutoSize = true;
+            SelectProdToUpdate.Location = new Point(264, 47);
+            SelectProdToUpdate.Name = "SelectProdToUpdate";
+            SelectProdToUpdate.Size = new Size(71, 20);
+            SelectProdToUpdate.TabIndex = 1;
+            SelectProdToUpdate.Text = "בחר מוצר";
             // 
-            // label1
+            // SelectCategory
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(277, 92);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            SelectCategory.AutoSize = true;
+            SelectCategory.Location = new Point(237, 168);
+            SelectCategory.Name = "SelectCategory";
+            SelectCategory.Size = new Size(93, 20);
+            SelectCategory.TabIndex = 6;
+            SelectCategory.Text = "בחר קטגוריה";
             // 
-            // button1
+            // ProdPrice
             // 
-            button1.Location = new Point(154, 153);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            ProdPrice.AutoSize = true;
+            ProdPrice.Location = new Point(289, 129);
+            ProdPrice.Name = "ProdPrice";
+            ProdPrice.Size = new Size(41, 20);
+            ProdPrice.TabIndex = 5;
+            ProdPrice.Text = "מחיר";
             // 
-            // button2
+            // AmountItems
             // 
-            button2.Location = new Point(160, 223);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 8;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            AmountItems.AutoSize = true;
+            AmountItems.Location = new Point(244, 88);
+            AmountItems.Name = "AmountItems";
+            AmountItems.Size = new Size(91, 20);
+            AmountItems.TabIndex = 4;
+            AmountItems.Text = "כמות פריטים";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(49, 40);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(151, 27);
+            textBox1.TabIndex = 11;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(49, 86);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(150, 27);
+            numericUpDown1.TabIndex = 10;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(49, 129);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(150, 27);
+            numericUpDown2.TabIndex = 9;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Items.AddRange(new object[] { "מוצרי חשמל", "ביגוד", "מוצרי שיער", "אלקטרוניקה", "מוצרי מטבח", "מוצרי נקיון" });
+            comboBox2.Location = new Point(49, 168);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 28);
+            comboBox2.TabIndex = 8;
+            // 
+            // UpdateProdButton
+            // 
+            UpdateProdButton.Location = new Point(155, 222);
+            UpdateProdButton.Name = "UpdateProdButton";
+            UpdateProdButton.Size = new Size(94, 29);
+            UpdateProdButton.TabIndex = 12;
+            UpdateProdButton.Text = "עדכן";
+            UpdateProdButton.UseVisualStyleBackColor = true;
             // 
             // Products
             // 
@@ -226,8 +327,12 @@
             AddProd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudAmount).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
+            UpdateProd.ResumeLayout(false);
+            UpdateProd.PerformLayout();
             DeleteProd.ResumeLayout(false);
             DeleteProd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,9 +352,18 @@
         private Label Price;
         private Label AmountProds;
         private Label ProdName;
-        private Button button2;
-        private Button button1;
-        private Label label1;
+        private Button AddProdButton;
+        private Button DeleteButton;
+        private Label SelectProd;
         private ComboBox comboBox1;
+        private TextBox textBox1;
+        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDown2;
+        private ComboBox comboBox2;
+        private Label SelectCategory;
+        private Label ProdPrice;
+        private Label AmountItems;
+        private Label SelectProdToUpdate;
+        private Button UpdateProdButton;
     }
 }
