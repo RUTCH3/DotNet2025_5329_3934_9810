@@ -12,11 +12,11 @@ namespace DO
         {
         }
 
-        public void toString()
+        public override string ToString()
         {
-            Console.WriteLine($"barcode:{_barcode}, " +
-                $"ProductName:{_productName}, Category:{_category}, " +
-                $"Price:{_price}, Quantity:{_quantity}");
+            return $"barcode:{_barcode}, " +
+                 $"ProductName:{_productName}, Category:{_category}, " +
+                 $"Price:{_price}, Quantity:{_quantity}";
         }
     }
 }

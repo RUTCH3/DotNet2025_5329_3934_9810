@@ -12,10 +12,10 @@ namespace DO
         {
 
         }
-    
-        public void toString()
+
+        public override string ToString()
         {
-            Console.WriteLine($"Id: {_id},  Nmae: {_name}, Address: {_address}, Phone: {_phone}");
+            return $"Id: {_id},  Nmae: {_name}, Address: {_address}, Phone: {_phone}";
         }
     }
 }

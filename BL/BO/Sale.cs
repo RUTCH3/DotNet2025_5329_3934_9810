@@ -6,39 +6,16 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class Sale
+    public class Sale(int _saleId, int _productId, int _amount, double _salePrice, bool _forAllCusts, DateTime _startDate, DateTime _endDate)
     {
-        private int _saleId = 0;
-        private int _productId = 0;
-        private int? _amount;
-        private double _salePrice;
-        private bool _forAllCusts;
-        private DateTime _startDate;
-        private DateTime _endDate;
+        public int SaleId { get; init; } = _saleId;
+        public int ProductId { get; set; } = _productId;
+        public int Amount { get; set; }= _amount;
+        public double SalePrice { get; set; } = _salePrice;
+        public bool ForAllCusts { get; set; } = _forAllCusts;
+        public DateTime StartDate { get; set; } = _startDate;
+        public DateTime EndDate { get; set; } = _endDate;
 
-        public int SaleId { get => _saleId; set => _saleId = value; }
-        public int ProductId { get => _productId; set => _productId = value; }
-        public int? Amount { get => _amount; set => _amount = value; }
-        public double SalePrice { get => _salePrice; set => _salePrice = value; }
-        public bool ForAllCusts { get => _forAllCusts; set => _forAllCusts = value; }
-        public DateTime StartDate { get => _startDate; set => _startDate = value; }
-        public DateTime EndDate { get => _endDate; set => _endDate = value; }
-
-        public Sale() { }
-        public Sale(int saleId, int productId, int? amount, double salePrice, bool forAllCusts, DateTime startDate, DateTime endDate)
-        {
-            this._saleId = saleId;
-            this._productId = productId;
-            this._amount = amount;
-            this._salePrice = salePrice;
-            this._forAllCusts = forAllCusts;
-            this._startDate = startDate;
-            this._endDate = endDate;
-        }
-        public void toString()
-        {
-            Console.WriteLine($"sale id: {_saleId}, product id: {_productId}, amount: {_salePrice}, " +
-                $"for all custs: {_forAllCusts}, start date: {_startDate}, end date: {_endDate}");
-        }
+        public override string ToString()=>this.ToStringProperty().ToString();
     }
 }

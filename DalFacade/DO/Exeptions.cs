@@ -1,5 +1,22 @@
 ﻿
 namespace DO;
 
-// רותי אין לי מושג איזה טיפוסים של חריגות להגדיר פה!!..אשמח שתעשי את זה
-// וואו זה דבר תותח!! תודייי
+[Serializable]
+public class DalExist : Exception
+{
+    //private String message;
+    public DalExist(String message)
+    {
+        throw new DalExist(message);
+    }
+}
+
+[Serializable]
+public class DalNotExist : Exception
+{
+    //private String message;
+    public DalNotExist(String message)
+    {
+        throw new DalNotExist(message);
+    }
+}

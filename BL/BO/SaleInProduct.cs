@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class SaleInProduct
+    public class SaleInProduct(int SaleId, int amountToSale, double price, bool IsAllCustomers)
     {
-        public int saleId { get; set; }
-        public int amountToSale { get; set; }
-        public double price { get; set; }
-        public bool isAllCustomers { get; set; }
-        public SaleInProduct() { }
+        public int SaleId { get; } = SaleId;
+        public int AmountToSale { get; set; } = amountToSale;
+        public double Price { get; set; } = price;
+        public bool IsAllCustomers { get; set; } = IsAllCustomers;
+        public override string ToString() => this.ToStringProperty();
     }
 }

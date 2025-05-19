@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class ProductInOrder
+    public class ProductInOrder(int ProductId, string? ProductName, double BasePriceToProduct, int CountInOrder, List<SaleInProduct>? LIstProductSales, double FinalPrice)
     {
-        public int productId { get; set; }
-        public string productName { get; set; } = string.Empty;
-        public double basePrice { get; set; }
-        public int amount { get; set; }
-        public List<Sale> salesList { get; set; }
-        public double finalPrice { get; set; }
+        public int ProductId { get; set; } = ProductId;
+        public string ProductName { get; set; } = ProductName;
+        public double BasePrice { get; set; } = BasePriceToProduct;
+        public int Amount { get; set; } = CountInOrder;
+        public List<SaleInProduct> SalesList { get; set; } = LIstProductSales;
+        public double FinalPrice { get; set; } = FinalPrice;
 
-        public ProductInOrder() { }
+        public override string ToString() => this.ToStringProperty();
+
     }
 }

@@ -11,10 +11,10 @@ namespace DO
         public Sale() : this(0, 0, 0, 0.0, false, new DateTime(), new DateTime())
         {
         }
-        
-        public void toString()
+
+        public override string ToString()
         {
-            Console.WriteLine($"sale id: {_saleId}, product id: {_productId}, amount: {_salePrice}, " +
+            return $"sale id: {_saleId}, product id: {_productId}, amount: {_salePrice}, total price: {_totalPrice}" +
                 $"for all custs: {_forAllCusts}, start date: {_startDate}, end date: {_endDate}");
         }
     }

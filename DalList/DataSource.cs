@@ -1,7 +1,11 @@
 ﻿namespace Dal;
 using DO;
+<<<<<<< Updated upstream
 
 internal static class DataSource
+=======
+static internal class DataSource
+>>>>>>> Stashed changes
 {
     internal static List<Customer>? Customers = new List<Customer>();
     internal static List<Product>? Products = new List<Product>();
