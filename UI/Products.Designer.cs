@@ -30,21 +30,26 @@
         {
             tbCustomers = new TabControl();
             AddProd = new TabPage();
+            tbName = new TextBox();
+            nudAmount = new NumericUpDown();
+            nudPrice = new NumericUpDown();
+            cbCategory = new ComboBox();
+            Category = new Label();
+            Price = new Label();
+            AmountProds = new Label();
+            ProdName = new Label();
             UpdateProd = new TabPage();
             DeleteProd = new TabPage();
             lblProds = new Label();
-            ProdName = new Label();
-            AmountProds = new Label();
-            Price = new Label();
-            Category = new Label();
-            cbCategory = new ComboBox();
-            nudPrice = new NumericUpDown();
-            nudAmount = new NumericUpDown();
-            tbName = new TextBox();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
+            button1 = new Button();
+            button2 = new Button();
             tbCustomers.SuspendLayout();
             AddProd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).BeginInit();
+            DeleteProd.SuspendLayout();
             SuspendLayout();
             // 
             // tbCustomers
@@ -55,11 +60,12 @@
             tbCustomers.Location = new Point(198, 103);
             tbCustomers.Name = "tbCustomers";
             tbCustomers.SelectedIndex = 0;
-            tbCustomers.Size = new Size(404, 244);
+            tbCustomers.Size = new Size(404, 306);
             tbCustomers.TabIndex = 1;
             // 
             // AddProd
             // 
+            AddProd.Controls.Add(button2);
             AddProd.Controls.Add(tbName);
             AddProd.Controls.Add(nudAmount);
             AddProd.Controls.Add(nudPrice);
@@ -71,10 +77,75 @@
             AddProd.Location = new Point(4, 29);
             AddProd.Name = "AddProd";
             AddProd.Padding = new Padding(3);
-            AddProd.Size = new Size(396, 211);
+            AddProd.Size = new Size(396, 273);
             AddProd.TabIndex = 0;
             AddProd.Text = "הוספה";
             AddProd.UseVisualStyleBackColor = true;
+            // 
+            // tbName
+            // 
+            tbName.Location = new Point(40, 32);
+            tbName.Name = "tbName";
+            tbName.Size = new Size(151, 27);
+            tbName.TabIndex = 7;
+            // 
+            // nudAmount
+            // 
+            nudAmount.Location = new Point(40, 78);
+            nudAmount.Name = "nudAmount";
+            nudAmount.Size = new Size(150, 27);
+            nudAmount.TabIndex = 6;
+            // 
+            // nudPrice
+            // 
+            nudPrice.Location = new Point(40, 121);
+            nudPrice.Name = "nudPrice";
+            nudPrice.Size = new Size(150, 27);
+            nudPrice.TabIndex = 5;
+            // 
+            // cbCategory
+            // 
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Location = new Point(40, 160);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(151, 28);
+            cbCategory.TabIndex = 4;
+            // 
+            // Category
+            // 
+            Category.AutoSize = true;
+            Category.Location = new Point(271, 163);
+            Category.Name = "Category";
+            Category.Size = new Size(93, 20);
+            Category.TabIndex = 3;
+            Category.Text = "בחר קטגוריה";
+            // 
+            // Price
+            // 
+            Price.AutoSize = true;
+            Price.Location = new Point(271, 128);
+            Price.Name = "Price";
+            Price.Size = new Size(41, 20);
+            Price.TabIndex = 2;
+            Price.Text = "מחיר";
+            // 
+            // AmountProds
+            // 
+            AmountProds.AutoSize = true;
+            AmountProds.Location = new Point(271, 85);
+            AmountProds.Name = "AmountProds";
+            AmountProds.Size = new Size(91, 20);
+            AmountProds.TabIndex = 1;
+            AmountProds.Text = "כמות מוצרים";
+            // 
+            // ProdName
+            // 
+            ProdName.AutoSize = true;
+            ProdName.Location = new Point(271, 43);
+            ProdName.Name = "ProdName";
+            ProdName.Size = new Size(66, 20);
+            ProdName.TabIndex = 0;
+            ProdName.Text = "שם מוצר";
             // 
             // UpdateProd
             // 
@@ -87,6 +158,9 @@
             // 
             // DeleteProd
             // 
+            DeleteProd.Controls.Add(button1);
+            DeleteProd.Controls.Add(label1);
+            DeleteProd.Controls.Add(comboBox1);
             DeleteProd.Location = new Point(4, 29);
             DeleteProd.Name = "DeleteProd";
             DeleteProd.Size = new Size(396, 211);
@@ -103,70 +177,40 @@
             lblProds.TabIndex = 3;
             lblProds.Text = "מוצרים";
             // 
-            // ProdName
+            // comboBox1
             // 
-            ProdName.AutoSize = true;
-            ProdName.Location = new Point(271, 43);
-            ProdName.Name = "ProdName";
-            ProdName.Size = new Size(66, 20);
-            ProdName.TabIndex = 0;
-            ProdName.Text = "שם מוצר";
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(75, 83);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 0;
             // 
-            // AmountProds
+            // label1
             // 
-            AmountProds.AutoSize = true;
-            AmountProds.Location = new Point(271, 85);
-            AmountProds.Name = "AmountProds";
-            AmountProds.Size = new Size(91, 20);
-            AmountProds.TabIndex = 1;
-            AmountProds.Text = "כמות מוצרים";
+            label1.AutoSize = true;
+            label1.Location = new Point(277, 92);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
             // 
-            // Price
+            // button1
             // 
-            Price.AutoSize = true;
-            Price.Location = new Point(271, 128);
-            Price.Name = "Price";
-            Price.Size = new Size(41, 20);
-            Price.TabIndex = 2;
-            Price.Text = "מחיר";
+            button1.Location = new Point(154, 153);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 2;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
-            // Category
+            // button2
             // 
-            Category.AutoSize = true;
-            Category.Location = new Point(271, 163);
-            Category.Name = "Category";
-            Category.Size = new Size(93, 20);
-            Category.TabIndex = 3;
-            Category.Text = "בחר קטגוריה";
-            // 
-            // cbCategory
-            // 
-            cbCategory.FormattingEnabled = true;
-            cbCategory.Location = new Point(40, 160);
-            cbCategory.Name = "cbCategory";
-            cbCategory.Size = new Size(151, 28);
-            cbCategory.TabIndex = 4;
-            // 
-            // nudPrice
-            // 
-            nudPrice.Location = new Point(40, 121);
-            nudPrice.Name = "nudPrice";
-            nudPrice.Size = new Size(150, 27);
-            nudPrice.TabIndex = 5;
-            // 
-            // nudAmount
-            // 
-            nudAmount.Location = new Point(40, 78);
-            nudAmount.Name = "nudAmount";
-            nudAmount.Size = new Size(150, 27);
-            nudAmount.TabIndex = 6;
-            // 
-            // tbName
-            // 
-            tbName.Location = new Point(40, 32);
-            tbName.Name = "tbName";
-            tbName.Size = new Size(151, 27);
-            tbName.TabIndex = 7;
+            button2.Location = new Point(160, 223);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 8;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
             // 
             // Products
             // 
@@ -180,8 +224,10 @@
             tbCustomers.ResumeLayout(false);
             AddProd.ResumeLayout(false);
             AddProd.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPrice).EndInit();
+            DeleteProd.ResumeLayout(false);
+            DeleteProd.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +247,9 @@
         private Label Price;
         private Label AmountProds;
         private Label ProdName;
+        private Button button2;
+        private Button button1;
+        private Label label1;
+        private ComboBox comboBox1;
     }
 }
