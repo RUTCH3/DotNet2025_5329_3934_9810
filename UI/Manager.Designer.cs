@@ -28,12 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Manager";
+            Sales = new Button();
+            Customers = new Button();
+            Products = new Button();
+            SuspendLayout();
+            // 
+            // Sales
+            // 
+            Sales.Location = new Point(196, 211);
+            Sales.Name = "Sales";
+            Sales.Size = new Size(94, 29);
+            Sales.TabIndex = 1;
+            Sales.Text = "מבצעים";
+            Sales.UseVisualStyleBackColor = true;
+            Sales.Click += Sales_Click;
+            // 
+            // Customers
+            // 
+            Customers.Location = new Point(379, 211);
+            Customers.Name = "Customers";
+            Customers.Size = new Size(94, 29);
+            Customers.TabIndex = 2;
+            Customers.Text = "לקוחות";
+            Customers.UseVisualStyleBackColor = true;
+            Customers.Click += Customers_Click;
+            // 
+            // Products
+            // 
+            Products.Location = new Point(546, 211);
+            Products.Name = "Products";
+            Products.Size = new Size(94, 29);
+            Products.TabIndex = 3;
+            Products.Text = "מוצרים";
+            Products.UseVisualStyleBackColor = true;
+            Products.Click += Products_Click;
+            // 
+            // Manager
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(Products);
+            Controls.Add(Customers);
+            Controls.Add(Sales);
+            Name = "Manager";
+            Text = "Manager";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button Sales;
+        private Button Customers;
+        private Button Products;
     }
 }

@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            manager = new Button();
+            salesman = new Button();
             SuspendLayout();
             // 
-            // button1
+            // manager
             // 
-            button1.Location = new Point(166, 173);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 0;
-            button1.Text = "קופאי";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            manager.Location = new Point(219, 184);
+            manager.Name = "manager";
+            manager.Size = new Size(94, 29);
+            manager.TabIndex = 0;
+            manager.Text = "מנהל";
+            manager.UseVisualStyleBackColor = true;
+            manager.Click += manager_Click;
             // 
-            // button2
+            // salesman
             // 
-            button2.Location = new Point(490, 173);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 1;
-            button2.Text = "מנהל";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            salesman.Location = new Point(503, 184);
+            salesman.Name = "salesman";
+            salesman.Size = new Size(94, 29);
+            salesman.TabIndex = 1;
+            salesman.Text = "קופאי";
+            salesman.UseVisualStyleBackColor = true;
+            salesman.Click += salesman_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(salesman);
+            Controls.Add(manager);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button manager;
+        private Button salesman;
     }
 }

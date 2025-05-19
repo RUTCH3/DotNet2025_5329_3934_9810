@@ -7,16 +7,16 @@ namespace UI
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void salesman_Click(object sender, EventArgs e)
+        {
+            Salesmen salesmen = new Salesmen();
+            salesmen.Show();
+        }
+
+        private void manager_Click(object sender, EventArgs e)
         {
             Manager manager = new Manager();
             manager.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Saleman saleman = new Saleman();
-            saleman.Show();
         }
     }
 }

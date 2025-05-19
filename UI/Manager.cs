@@ -16,5 +16,23 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void Sales_Click(object sender, EventArgs e)
+        {
+            Sales s = new Sales();
+            s.Show();
+        }
+
+        private void Customers_Click(object sender, EventArgs e)
+        {
+            Customers c = new Customers();
+            c.Show();
+        }
+
+        private void Products_Click(object sender, EventArgs e)
+        {
+            Products d = new Products();
+            d.Show();
+        }
     }
 }
